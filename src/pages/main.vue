@@ -38,8 +38,14 @@ import Cheader from "../components/header.vue";
 import login from "../components/login.vue";
 import register from "../pages/index.vue";
 import addmember from "../components/addmember.vue";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import axios from "axios";
+
+import { useUserStore } from "@/store/users";
+
+const userStore = useUserStore();
+const clientInfo = userStore.clientInfo;
+
 const addMemberBtnBln = ref(false);
 
 function addMemberBtn() {
@@ -52,6 +58,8 @@ function closeModal() {
 
 axios.get("http://localhost:8080/api/admin/getAllUsers").then((res) => {
   console.log(res.body);
+  console.log(clientInfo);
+  userStore.setClientInfo(data);
 });
 </script>
 

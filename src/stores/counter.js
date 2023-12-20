@@ -3,11 +3,9 @@ import { defineStore } from "pinia";
 
 export const useCounterStore = defineStore("users", () => {
   const clientInfo = ref([]);
-  // const count = ref(0);
-  // const doubleCount = computed(() => count.value * 2);
-  // function increment() {
-  //   count.value++;
-  // }
+  const setClientInfo = (data) => {
+    clientInfo.value = data;
+  };
 
-  // return { count, doubleCount, increment };
+  return { clientInfo, setClientInfo };
 });
