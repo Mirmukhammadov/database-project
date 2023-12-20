@@ -7,15 +7,18 @@
     <ul
       class="card__list"
       :class="{ indexHovered: 'addMemberBtnBln' }"
-      v-for="item in 6"
+      v-for="obj in clientInfo"
+      :key="obj.id"
     >
       <li class="card__item">
-        <p>id</p>
-        <p>name</p>
-        <p>status</p>
-        <p>phone</p>
-        <p>unit</p>
+        <p>obj.id</p>
         <img src="https://picsum.photos/30/30" class="client-image" />
+        <p>obj.name</p>
+        <p>obj.number</p>
+        <p>obj.email</p>
+        <p>obj.isActive</p>
+        <p>obj.unit</p>
+
         <div>
           <button class="delete-btn">delete</button>
           <button class="edit-btn">edit</button>
@@ -57,8 +60,9 @@ function closeModal() {
 }
 
 axios.get("http://localhost:8080/api/admin/getAllUsers").then((res) => {
-  console.log(res.body);
+  console.log(res.data);
   console.log(clientInfo);
+  data = res.data;
   userStore.setClientInfo(data);
 });
 </script>
