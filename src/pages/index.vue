@@ -23,6 +23,7 @@
 <script setup>
 import { ref } from "vue";
 import axios from "axios";
+import router from "@/router";
 
 const username = ref();
 const email = ref();
@@ -38,6 +39,13 @@ function signup() {
     })
     .then((response) => {
       console.log(response);
+
+      if (response.status == 200) {
+        router.push({ path: "/main" });
+      } else {
+        alert(response.body.data);
+      }
+      console.log(response, "response");
     });
 }
 </script>

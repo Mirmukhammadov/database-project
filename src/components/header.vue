@@ -1,6 +1,6 @@
 <template>
   <div class="container header-div">
-    <p class="header-logo">Invoices</p>
+    <p class="header-logo">Fitness</p>
     <div>
       <input
         type="text"
@@ -10,6 +10,8 @@
         class="search_input"
       />
 
+      <button class="transaction-btn">Transaction</button>
+
       <button class="add-member-btn" @click="$emit('addMemberBtn')">
         Add member
       </button>
@@ -18,6 +20,17 @@
 </template>
 
 <style scoped>
+.transaction-btn {
+  width: 100px;
+  height: auto;
+  padding: 10px;
+  border-radius: 24px;
+  color: white;
+  background: green;
+  border: none;
+  cursor: pointer;
+  margin-right: 15px;
+}
 .add-member-btn {
   width: 150px;
   height: auto;
