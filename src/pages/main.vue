@@ -59,11 +59,12 @@ function closeModal() {
   addMemberBtnBln.value = false;
 }
 
-axios.get("http://localhost:8080/api/admin/getAllUsers").then((res) => {
-  console.log(res.data);
-  console.log(clientInfo);
-  data = res.data;
-  userStore.setClientInfo(data);
+onMounted(() => {
+  axios.get("http://localhost:8080/api/admin/getAllUsers").then((res) => {
+    console.log(res.data);
+    console.log(clientInfo);
+    userStore.setClientInfo(res.data);
+  });
 });
 </script>
 
