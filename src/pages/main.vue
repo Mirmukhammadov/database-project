@@ -11,13 +11,13 @@
       :key="obj.id"
     >
       <li class="card__item">
-        <p>obj.id</p>
+        <p>{{ obj.id }}</p>
         <img src="https://picsum.photos/30/30" class="client-image" />
-        <p>obj.name</p>
-        <p>obj.number</p>
-        <p>obj.email</p>
-        <p>obj.isActive</p>
-        <p>obj.unit</p>
+        <p>{{ obj.name }}</p>
+        <p>{{ obj.number }}</p>
+        <p>{{ obj.email }}</p>
+        <p>{{ obj.isActive }}</p>
+        <p>{{ obj.unit }}</p>
 
         <div>
           <button class="delete-btn">delete</button>
@@ -43,26 +43,41 @@ import register from "../pages/index.vue";
 import addmember from "../components/addmember.vue";
 import { ref, onMounted } from "vue";
 import axios from "axios";
-
 import { useUserStore } from "@/stores/users";
 
 const userStore = useUserStore();
-const clientInfo = userStore.clientInfo;
-
+// const clientInfo = userStore.clientInfo;
+const clientInfo = [
+  {
+    id: 1,
+    email: "2110117@neewuu.uz",
+    image: null,
+    isActive: true,
+    name: "Davron",
+    number: 1234567,
+    unit: 40,
+  },
+  {
+    email: "2110118@neewuu.uz",
+    id: 2,
+    image: null,
+    isActive: true,
+    name: "Ismoil",
+    number: 122112,
+    unit: 32,
+  },
+];
 const addMemberBtnBln = ref(false);
 
 function addMemberBtn() {
   addMemberBtnBln.value = true;
 }
-
 function closeModal() {
   addMemberBtnBln.value = false;
 }
 
 onMounted(() => {
   axios.get("http://localhost:8080/api/admin/getAllUsers").then((res) => {
-    console.log(res.data);
-    console.log(clientInfo);
     userStore.setClientInfo(res.data);
   });
 });
