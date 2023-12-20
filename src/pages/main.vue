@@ -14,7 +14,7 @@
         <p>name</p>
         <p>status</p>
         <p>phone</p>
-        <p>group</p>
+        <p>unit</p>
         <img src="https://picsum.photos/30/30" class="client-image" />
         <div>
           <button class="delete-btn">delete</button>

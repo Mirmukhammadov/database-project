@@ -15,11 +15,11 @@
       <label for="phone">Client's phone</label>
       <input type="number" id="phone" v-model="clientPhone" required />
 
-      <!-- <label for="image">Client's image</label>
-      <input type="file" accept=".jpg, .jpeg, .png" id="image" required /> -->
+      <label for="image">Client's image</label>
+      <input type="file" accept=".jpg, .jpeg, .png" id="image" required />
 
       <label for="unit">Client's unit</label>
-      <input type="text" id="unit" v-model="clientUnit" required />
+      <input type="number" id="unit" v-model="clientUnit" required min="0" />
 
       <button @submit.prevent="getClientvalue()" class="add-member-btn">
         save
@@ -35,7 +35,7 @@ let clientName = ref();
 let clientEmail = ref();
 let clientPhone = ref();
 let clientUnit = ref();
-// let clientImage = ref();
+let clientImage = ref();
 
 function getClientvalue() {
   console.log(
