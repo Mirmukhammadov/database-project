@@ -44,7 +44,7 @@ import addmember from "../components/addmember.vue";
 import { ref, onMounted } from "vue";
 import axios from "axios";
 
-import { useUserStore } from "@/store/users";
+import { useUserStore } from "@/stores/users";
 
 const userStore = useUserStore();
 const clientInfo = userStore.clientInfo;
