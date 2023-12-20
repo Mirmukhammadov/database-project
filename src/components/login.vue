@@ -33,6 +33,13 @@ function login() {
     })
     .then((response) => {
       console.log(response);
+
+      if (response.status == 200) {
+        router.push({ path: "/main" });
+      } else {
+        alert(response.body.data);
+      }
+      console.log(response, "response");
     });
 }
 </script>

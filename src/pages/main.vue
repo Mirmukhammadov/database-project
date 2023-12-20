@@ -39,6 +39,7 @@ import login from "../components/login.vue";
 import register from "../pages/index.vue";
 import addmember from "../components/addmember.vue";
 import { ref } from "vue";
+import axios from "axios";
 const addMemberBtnBln = ref(false);
 
 function addMemberBtn() {
@@ -48,6 +49,10 @@ function addMemberBtn() {
 function closeModal() {
   addMemberBtnBln.value = false;
 }
+
+axios.get("http://localhost:8080/api/admin/getAllUsers").then((res) => {
+  console.log(res.body);
+});
 </script>
 
 <style scoped>
